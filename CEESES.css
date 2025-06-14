@@ -8,6 +8,7 @@ h1{
 }
 body{
     background-color: #111111;
+    background-image: url(folder/bg.jpg);
     background-size: cover;
     color: #ffffff;
     font-family: 'monospace';
@@ -17,7 +18,7 @@ body{
     width: 620px;
     height: 550px;
     padding: 10px;
-    border: 5px solid rgb(19, 18, 18);
+    border: 5px solid rgb(32, 26, 116);
     border-radius: 15px;
     margin: 40px auto; /* Center horizontally and add some vertical spacing */
     display: block;
