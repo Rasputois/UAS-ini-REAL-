@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sejago apa sih kamu??</title>
+  <link rel="icon" type="image/x-icon" href="folder/gjL5G5Zk_400x400.jpg" class="img-fluid">
+  <link href="folder bt5/all.min.css" rel="stylesheet">
+  <link href="folder bt5/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-color: #c52b10;
+      background-image: url(folder/Emyu.jpg);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-position: top;
+      background-size: cover;
+      color: white;
+      text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+    }
+
+    .container {
+      flex: 1;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .result-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #ffffff;
+      background-color: transparent;
+      text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+      text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mb-4">Tes Seberapa jago kamu main Sepak Bola?</h1>
+    <p>Masukkan nama kamu dan buktikan seberapa jago kamu!!!</p>
+    <form onsubmit="checkFootball(); return false;" class="mb-3">
+      <input type="text" class="form-control form-control-lg mb-3" id="nameInput" placeholder="Contoh: Lamine Yamal">
+      <button class="btn btn-danger btn-lg btn-primary" type="submit" id="submitButton">Cek Sekarang juga!</button>
+    </form>
+    <div class="progress mb-3" style="display: none;" id="progressContainer">
+      <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 0%">0%</div>
+    </div>
+    <div id="resultText" class="result-text"></div>
+    <img src id="resultImage" class="mx-auto mt-3 img-fluid">
+  </div>
+  <div class="footer">
+    <p>Dibuat oleh Raden Fadhlurrohman Sa'id Febrianto © 2025 |
+      <a href="https://github.com/Rasputois/UAS-ini-REAL-" target="_blank">
+        <i class="bi bi-github"></i>GitHub
+      </a>
+    </p>
+  </div>
+
+
+  <script>
+    function checkFootball() {
+      const name = document.getElementById("nameInput").value.trim();
+      const resultText = document.getElementById("resultText");
+      const resultImage = document.getElementById("resultImage");
+      const progressBar = document.getElementById("progressBar");
+      const progressContainer = document.getElementById("progressContainer");
+      const submitButton = document.getElementById("submitButton");
+
+      if (name === "") {
+        resultText.innerText = "Masukkan nama dulu dongo!";
+        resultImage.style.display = "none";
+        progressContainer.style.display = "none";
+        return;
+      }
+
+      submitButton.disabled = true;
+      resultText.innerText = "";
+      progressBar.style.width = "0%";
+      progressBar.innerText = "0%";
+      progressContainer.style.display = "block";
+      resultImage.style.display = "none";
+
+      const percent = Math.floor(Math.random() * 101);
+      let current = 0;
+
+      const interval = setInterval(() => {
+        if (current >= percent) {
+          clearInterval(interval);
+          submitButton.disabled = false;
+
+          let desc = "";
+          let imgUrl = "";
+          
+          if (percent == 0) {
+            desc = "Kamu cupu sekali 😆";
+            imgUrl = "folder/sad-man-with-thumb-down_1187-2911.jpg";
+          } else if (percent < 20) {
+            desc = "Cuman bisa Pinalti😂";
+            imgUrl = "folder/messi-pessi.gif";
+          } else if (percent < 40) {
+            desc = "Masih Medioker luwh!";
+            imgUrl = "folder/brahima-diarra.gif";
+          } else if (percent < 60) {
+            desc = "Lumayan jago tapi kurang Jago";
+            imgUrl = "folder/antony-richarlison.gif";
+          } else if (percent < 80) {
+            desc = "Wih World Class Player!!🤑";
+            imgUrl = "folder/wmiKL-.gif";
+          } else {
+            desc = "Sekelas GAOT ANTHONY!!☠️";
+            imgUrl = "folder/anthony-manchester-united.gif";
+          }
+
+          resultText.innerText = `${name}, kamu cuman ${percent}% jagonya, ${desc}`;
+          resultImage.src = imgUrl;
+          resultImage.style.display = "block";
+        } else {
+          current++;
+          progressBar.style.width = `${current}%`;
+          progressBar.innerText = `${current}%`;
+        }
+      }, 20);
+    }
+  </script>
+</body>
+</html>

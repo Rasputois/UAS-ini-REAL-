@@ -1,6 +1,25 @@
 h1{
-    font-size: 2em;
-    color: #333;
+    font-size: 50px;
+    color: #ffffff;
     text-align: center;
     margin-top: 20px;
+    font-weight: bold;
+    font-family: 'monospace';
+}
+body{
+    background-color: #111111;
+    background-image: url(folder/bg.jpg);
+    background-size: cover;
+    color: #ffffff;
+    font-family: 'monospace';
+}
+.box {
+    background: #272b33;
+    width: 620px;
+    height: 550px;
+    padding: 10px;
+    border: 5px solid rgb(32, 26, 116);
+    border-radius: 15px;
+    margin: 40px auto; /* Center horizontally and add some vertical spacing */
+    display: block;
 }
